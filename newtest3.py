@@ -12,13 +12,13 @@ import re
 s = requests.Session()
 response = s.get('http://mpets.mobi/welcome', proxies={"https": "https://149.56.102.220:3128"})
 d = s.cookies.get_dict()
-nicknamepet = input.encode('utf8')('Введите ник игрока:')
-passwordpet = input.encode('utf8')('Введите пароль игрока:')
+nicknamepet = input (u'nick')
+passwordpet = input (u'nick')
 payload = {"name":nicknamepet, "password":passwordpet}
 response = requests.post("http://mpets.mobi/login", payload, cookies=d, proxies={"https": "https://149.56.102.220:3128"})
 
 #eat
-print.encode('utf8')('Тренер начал свою работу. :)')
+print (u'start')
 for x in range(0,9000):
 	processfood = 1
 	while processfood <= 3:
