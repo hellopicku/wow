@@ -1,6 +1,3 @@
-import sys
-reload(sys)
-sys.setdefaultencoding('utf8')
 import requests
 from random import choice
 from string import ascii_uppercase
@@ -15,13 +12,13 @@ import re
 s = requests.Session()
 response = s.get('http://mpets.mobi/welcome', proxies={"https": "https://149.56.102.220:3128"})
 d = s.cookies.get_dict()
-nicknamepet = input('Введите ник игрока:')
-passwordpet = input('Введите пароль игрока:')
+nicknamepet = input('Введите ник игрока:').encode('utf8')
+passwordpet = input('Введите пароль игрока:').encode('utf8')
 payload = {"name":nicknamepet, "password":passwordpet}
 response = requests.post("http://mpets.mobi/login", payload, cookies=d, proxies={"https": "https://149.56.102.220:3128"})
 
 #eat
-print('Тренер начал свою работу. :)')
+print('Тренер начал свою работу. :)').encode('utf8')
 for x in range(0,9000):
 	processfood = 1
 	while processfood <= 3:
